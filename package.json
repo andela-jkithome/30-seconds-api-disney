@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "An api to fetch disney movies",
   "main": "index.js",
+  "start": "node index.js",
   "repository": {
     "url": "https://github.com/andela-jkithome/30-seconds-api-disney.git",
     "type": "git"
