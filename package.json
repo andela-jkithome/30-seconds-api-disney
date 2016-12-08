@@ -1,0 +1,19 @@
+{
+  "name": "thirty_seconds_disney_api",
+  "version": "1.0.0",
+  "description": "An api to fetch disney movies",
+  "main": "index.js",
+  "repository": {
+    "url": "https://github.com/andela-jkithome/30-seconds-api-disney.git",
+    "type": "git"
+  },
+  "author": "Jeremy Kithome <jeremy.kithome@andela.com>",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.15.3",
+    "cors": "^2.8.1",
+    "dotenv": "^2.0.0",
+    "express": "^4.14.0",
+    "lodash": "^4.17.2"
+  }
+}
