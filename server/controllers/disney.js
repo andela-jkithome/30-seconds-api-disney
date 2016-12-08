@@ -3,7 +3,7 @@ const _ = require('lodash');
 
 const API_URL = 'https://api.themoviedb.org/3/company/2/movies?api_key=' + process.env.API_KEY +'&language=en-US';
 
-let pages = nyyull;
+let pages = null;
 
 function fetchMovies(page=1, movies=[]) {
   return Axios.get(`${API_URL}&page=${page}`)
