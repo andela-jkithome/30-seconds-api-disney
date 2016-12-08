@@ -8,5 +8,6 @@ app.use(cors());
 routes(app);
 
 app.listen(3000);
+console.log('Listening on PORT 3000.');
 
 module.exports = app
