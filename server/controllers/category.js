@@ -1,7 +1,6 @@
-(function() {
-  'use strict';
-  var Category = require('../models/category');
-  module.exports = {
+var Category = require('../models/category');
+
+module.exports = {
     create: function(req, res) {
       var category = new Category();
       category.title = req.body.title;
@@ -30,10 +29,12 @@
         if (err) {
           res.status(500).send(err);
         } else {
-          var result = categories.map(category => {
+          var result = categories.map(function(category) {
+            var obj = {};
             var title = category.title;
             var values = category.values;
-            return {[title]: values};
+            obj[title] = values;
+            return obj;
           })
           res.json(result);
         }
@@ -75,4 +76,3 @@
       });
     }
   };
-})();
