@@ -4,7 +4,7 @@ module.exports = {
     create: function(req, res) {
       var category = new Category();
       category.title = req.body.title;
-      category.values = req.body.values;
+      category.values = JSON.parse((req.body.values).replace(/'/gi,'"'));
 
       category.save(function(err) {
         if (err) {
