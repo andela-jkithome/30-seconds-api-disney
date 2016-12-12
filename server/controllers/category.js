@@ -4,7 +4,7 @@ module.exports = {
     create: function(req, res) {
       var category = new Category();
       category.title = req.body.title;
-      category.values = req.body.values;
+      category.values = JSON.parse((req.body.values).replace(/'/gi,'"'));
 
       category.save(function(err) {
         if (err) {
@@ -20,6 +20,20 @@ module.exports = {
             message: 'Category created successfully.',
             category: category
           });
+        }
+      });
+    },
+
+    find: function(req,res) {
+      Category.findOne({"title": req.params.category},  {"title": true, "values": true},function(err, category) {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          var obj = {};
+          var title = category.title;
+          var values = category.values;
+          obj[title] = values;
+          res.json(obj);
         }
       });
     },

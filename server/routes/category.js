@@ -7,6 +7,7 @@ module.exports = function(app) {
       .post(Auth.authenticate, Category.create);
 
   app.route('/api/category/:category')
+      .get(Category.find)
       .put(Auth.authenticate, Category.update)
       .delete(Auth.authenticate, Category.delete);
 }
