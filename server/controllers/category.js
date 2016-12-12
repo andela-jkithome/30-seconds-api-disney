@@ -24,6 +24,20 @@ module.exports = {
       });
     },
 
+    find: function(req,res) {
+      Category.findOne({"title": req.params.category},  {"title": true, "values": true},function(err, category) {
+        if (err) {
+          res.status(500).send(err);
+        } else {
+          var obj = {};
+          var title = category.title;
+          var values = category.values;
+          obj[title] = values;
+          res.json(obj);
+        }
+      });
+    },
+
     fetch: function(req, res) {
       Category.find({}, function(err, categories) {
         if (err) {
