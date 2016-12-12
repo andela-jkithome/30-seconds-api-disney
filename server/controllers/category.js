@@ -62,9 +62,9 @@ module.exports = {
         set.$set.title = req.body.title;
       }
       if (req.body.values) {
-        set.$set.values = req.body.values
+        set.$set.values = JSON.parse((req.body.values).replace(/'/gi,'"'));
       }
-      Category.findOneAndUpdate({title: req.params.category}, {$set:{name:"Naomi"}}, {new: true}, function(err, doc){
+      Category.findOneAndUpdate({title: req.params.category}, set, {new: true}, function(err, category){
           if(err){
             res.status(500).send(err);
           } else {
